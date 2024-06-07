@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+.titulos {
+	font-family: 'DM Sans', sans-serif;
+	font-size: 24pt;
+	color: #9F7EAF;
+	text-align: center;
+}
+
+.titulos1 {
+	font-family: 'DM Sans', sans-serif;
+	font-size: 36pt;
+	color: #9F7EAF;
+	text-align: center;
+}
+
+.texto {
+	font-family: 'Didact Gothic', sans-serif;
+	font-size: 21pt;
+	color: #FFFFFF;
+	text-align: justify;
+}
+
+.titulos2 {
+	font-family: 'DM Sans', sans-serif;
+	font-size: 36pt;
+	color: #FFFFFF;
+	text-align: center;
+}
+.titulos3 {
+	font-family: 'DM Sans', sans-serif;
+	font-size: 30pt;
+	color: #FFFFFF;
+	text-align: center;
+}
+.texto1 {
+	font-family: 'Didact Gothic', sans-serif;
+	font-size: 21pt;
+	color: #FFFFFF;
+	text-align: center;
+}

@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+    <head>
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&display=swap" rel="stylesheet">
+	
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap" rel="stylesheet">
+		
+        <title>Galería de Fotos</title>
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="Galeria" />
+		<meta name="description" content="Galeria" />
+        <link rel="shortcut icon" href="icono.ico" />
+        
+		<!-- Start VisualLightBox.com HEAD section -->
+				<link rel="stylesheet" href="engine/css/lightbox.css" type="text/css" media="screen" />
+		<script src="engine/js/prototype.js" type="text/javascript"></script>
+		<script src="engine/js/scriptaculous.js?load=effects,builder" type="text/javascript"></script>
+		<script src="engine/js/lightbox.js" type="text/javascript"></script>
+
+		<style>
+			.gallery {
+	zoom: 1;
+	width: 900px;
+			}
+			.gallery a {
+				display:block;
+				float:left;
+				margin:5px;
+				padding:6px;
+				border:solid 1px #b8b8b8;
+				background-color:#f4f5f5;
+				opacity:0.76;
+				text-align:center;
+			}
+			.gallery a:hover {
+				opacity:1;
+			}
+			.gallery a img {
+				border:none;
+				display:block;
+			}
+			.gallery a#vlightbox{display:none}
+		body {
+    background-image: url(img/BG2.png);
+    background-color: #FFFFFF;
+    margin-left: 0px;
+    margin-top: 0px;
+    background-repeat: repeat;
+}
+#apDiv1 {
+	position:absolute;
+	left:482px;
+	top:108px;
+	width:366px;
+	height:147px;
+	z-index:1;
+}
+        body,td,th {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #696969;
+}
+        #apDiv3 {
+	position:absolute;
+	left:993px;
+	top:523px;
+	width:95px;
+	height:24px;
+	z-index:2;
+}
+        </style>
+		<link href="estilos.css" rel="stylesheet" type="text/css" />
+		<style type="text/css">
+		a:link {
+    color: #9F7EAF;
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+    color: #9F7EAF;
+}
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
+}
+        </style>
+		<!-- End VisualLightBox.com HEAD section -->
+        
+        <script type="text/javascript">
+
+var actualWidth = 1720; 
+var actualHeight = 2300; var message; var b_fullsize=0;
+
+function closeWindow() 
+{
+  this.focus();
+    self.opener = this;
+      self.close();
+}
+
+function getCookie(name)
+{
+var dc = document.cookie;
+  var prefix = name + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+    begin = dc.indexOf(prefix);
+    if (begin != 0) return null;
+  } else
+    begin += 2;
+  var end = document.cookie.indexOf(";", begin);
+  if (end == -1)
+    end = dc.length;
+  return unescape(dc.substring(begin + prefix.length, end));
+
+}
+function setCookie (name, value, time)
+        {
+                var expires = new Date();
+
+                expires.setTime( expires.getTime() + time );
+
+document.cookie = name + '=' + value + '; domain=.imagevenue.com; path=/; expires=' + expires.toGMTString();
+        }
+function checkSurfBegin()
+{
+
+//       $('overlayBg').style.width = (document.documentElement.clientWidth)+"px";
+//	$('overlayBg').style.height = (document.body.offsetHeight)+"px";
+
+//	$('ajax_load_indicator').style.top = (document.documentElement.clientHeight/2-50)+"px";
+//      $('ajax_load_indicator').style.left = (document.documentElement.clientWidth/2-150)+"px";
+//	what = document.getElementById('thepic');
+
+	var width = windowWidth();
+// 	var width = 500;
+	var height = (actualHeight/actualWidth) * width;
+//	var pr = width +  '-- ' + height + "--  2333";
+//	document.write(pr);
+	$('overlayBg').style.width = width;
+	$('overlayBg').style.height = height;
+	
+	$('ajax_load_indicator').style.top =  (height/5-50)+"px";
+	$('ajax_load_indicator').style.left =  (width/2-150)+"px";
+	$('overlayBg').style.display='block';
+	
+ 	new Effect.Opacity('overlayBg', { from: 0.0, to: 0.7, duration: 0.0 });
+//	document.write(pr);
+ 	$('ajax_load_indicator').style.display='block';
+
+}
+
+function surfBegin(){
+        $('overlayBg').style.display='none';
+        $('ajax_load_indicator').style.display='none';
+        setCookie('surfBegin', 1, (11*3600*1000));
+
+}
+
+
+
+function tableWidth()
+{return windowWidth()-100;}
+
+function windowWidth() {
+if (navigator.appName=="Netscape")
+return window.innerWidth;
+
+return document.body.offsetWidth;
+}
+
+function scaleImg() {
+what = document.getElementById('thepic');
+actualHeight=what.height; 
+actualWidth=what.width;
+if (  fitsInWindow() ) 
+return;
+if(what.width==tableWidth())
+ {
+what.width=actualWidth;
+what.height=actualHeight;
+}
+else
+{
+what.style.cursor = "pointer";
+what.width=tableWidth();
+what.height = (actualHeight/actualWidth) * what.width;
+}
+}
+
+function showOnclick()
+{
+what = document.getElementById('thepic');
+
+if (actualWidth == what.width)
+        return scaleImg();
+else if (actualWidth > what.width)
+{
+what.width=actualWidth;
+what.height=actualHeight;
+}
+}
+
+function liveResize() {
+what = document.getElementById('thepic');
+actualHeight=what.height; actualWidth=what.width;
+ if (fitsInWindow())return;
+if (what.width!=actualWidth) {
+what.width=tableWidth();what.height = (actualHeight/actualWidth) * what.width;
+}
+}
+
+function setImgWidth(){
+ if (fitsInWindow())return;
+document.getElementById('thepic').width=tableWidth();
+}
+function fitsInWindow() {
+   what = document.getElementById('thepic');
+   var  actualWidth= what.width;
+  if (actualWidth<tableWidth()) {
+
+   return true;
+  } else {
+  return false;
+  }
+  }
+</script>
+        
+        
+</head>
+    <body>
+		<table width="1030" align="center" cellspacing="10" bgcolor="">
+		  <tbody>
+		    <tr>
+		      <td width="381"><img src="img/logo nombre.png" width="381" height="128" alt=""/></td>
+		      <td width="139" align="center" valign="middle" class="titulos"><a href="index.html">INICIO</a></td>
+		      <td width="150" align="center" valign="middle" class="titulos"><a href="cv.html">CV</a></td>
+		      <td width="150" align="center" valign="middle" class="titulos"><a href="galeria.html">PORTAFOLIO</a></td>
+		      <td width="128" align="center" valign="middle" class="titulos"><a href="contacto.html">CONTACTO</a></td>
+	        </tr>
+	      </tbody>
+    </table>
+	<p>        
+	<table width="1100" align="center" cellpadding="0" bgcolor="#e590bc">
+	  <tbody>
+	    <tr>
+	      <td colspan="3" class="titulos3">PORTAFOLIO</td>
+        </tr>
+	    <tr>
+	      <td colspan="3" class="texto1"><p>Redes Sociales</p>
+          <p><img src="img/mockup ig.png" width="900" height="601" alt=""/></p></td>
+        </tr>
+	    <tr>
+	      <td colspan="3" class="texto1"><p><img src="img/mockup fb1.png" width="1000" height="559" alt=""/></p></td>
+        </tr>
+	    <tr>
+	      <td width="155" align="center" valign="middle"><img src="img/fb-34.png" width="550" height="463" alt=""/></td>
+	      <td colspan="2" align="center" valign="middle"><img src="img/fb-35.png" width="550" height="463" alt=""/></td>
+        </tr>
+	    <tr>
+	      <td colspan="3" class="texto1"><p>&nbsp;</p>
+          <p>Comunicación</p>
+          <p>&nbsp;</p></td>
+        </tr>
+	    <tr>
+	      <td colspan="3"><img src="img/invitacion.png" width="1100" height="550" alt=""/></td>
+        </tr>
+	    <tr>
+	      <td colspan="3"><img src="img/invitacion2.png" width="1100" height="550" alt=""/></td>
+        </tr>
+	    <tr>
+	      <td colspan="3"><img src="img/mails.png" width="1100" height="350" alt=""/></td>
+        </tr>
+	    <tr>
+	      <td colspan="3" class="titulos3"><p>&nbsp;</p>
+          <p>Portafolio de Videos</p></td>
+        </tr>
+	    <tr>
+	      <td colspan="3" class="texto1"><a href="https://drive.google.com/drive/folders/1u81HCRjvT9KErg7yrDXO2EmYOhDPzb7X?usp=sharing" target="_blank" class="titulos1">- Link a la carpeta de Drive -</a></td>
+        </tr>
+	    <tr>
+	      <td colspan="3" class="texto1">&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>
+	<p>&nbsp;</p>
+	<table width="640" align="center">
+	  <tbody>
+	    <tr>
+	      <td bgcolor="#FFFFFF" class="titulos1"><a href="cv/portafolio.pdf" target="_blank">Descargar PDF</a></td>
+        </tr>
+      </tbody>
+    </table>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<table width="1280" align="center" cellpadding="15" cellspacing="0">
+	  <tbody>
+	    <tr>
+	      <td width="964" align="center" bgcolor="#E4BCD9" class="texto"> rocohe.98@gmail.com</td>
+	      <td width="150" align="center" valign="middle" bgcolor="#E4BCD9"><a href="https://www.instagram.com/_rocaletta/" target="_blank"><img src="img/instagram.png" width="30" height="30" alt=""/></a></td>
+	      <td width="150" align="center" valign="middle" bgcolor="#E4BCD9"><a href="https://www.linkedin.com/in/rodrigo-cort%C3%A9s-55b29b237/" target="_blank"><img src="img/linkedin.png" width="30" height="30" alt=""/></a></td>
+        </tr>
+      </tbody>
+    </table>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+
+	
+</body>
+</html>
